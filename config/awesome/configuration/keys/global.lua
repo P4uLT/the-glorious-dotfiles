@@ -12,10 +12,9 @@ local apps = require("configuration.apps")
 -- Key bindings
 local global_keys = awful.util.table.join(
 
-	-- Hotkeys
+-- Hotkeys
 	awful.key({ modkey }, "F1", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
-
 	awful.key({ modkey, "Control" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 	awful.key({ altkey, "Shift" }, "l", function()
 		awful.tag.incmwfact(0.05)
@@ -122,7 +121,7 @@ local global_keys = awful.util.table.join(
 	awful.key({}, "XF86AudioPlay", function()
 		awful.spawn("mpc toggle", false)
 	end, { description = "play/pause music", group = "hotkeys" }
-),
+	),
 	awful.key({}, "XF86AudioMicMute", function()
 		awful.spawn("amixer set Capture toggle", false)
 	end, { description = "mute microphone", group = "hotkeys" }),
@@ -147,10 +146,12 @@ local global_keys = awful.util.table.join(
 		end
 	end, { description = "toggle music widget", group = "launcher" }),
 	awful.key({}, "Print", function()
-		awful.spawn.easy_async_with_shell(apps.utils.full_screenshot, function() end)
+		awful.spawn.easy_async_with_shell(apps.utils.full_screenshot, function()
+		end)
 	end, { description = "fullscreen screenshot", group = "Utility" }),
 	awful.key({ modkey, "Shift" }, "s", function()
-		awful.spawn.easy_async_with_shell(apps.utils.area_screenshot, function() end)
+		awful.spawn.easy_async_with_shell(apps.utils.area_screenshot, function()
+		end)
 	end, { description = "area/selected screenshot", group = "Utility" }),
 	awful.key({ modkey }, "x", function()
 		awesome.emit_signal("widget::blur:toggle")

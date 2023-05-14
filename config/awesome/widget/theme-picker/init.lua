@@ -10,13 +10,10 @@ local hot_keys = {
 	select = { Return = true },
 }
 local themes = {
-	{ name = "Floppy", description = "Floppy was meant to be a clone of the infamous Flurry Desktop." },
+	{ name = "Floppy",    description = "Floppy was meant to be a clone of the infamous Flurry Desktop." },
 	{ name = "GNawesOME", description = "Yes, GNawesOME is a weird name. GNawesOME was meant to be a GNOME clone" },
-	{
-		name = "Surreal",
-		description = "Yes, I copied the macOS Big Sur design.",
-	},
-	{ name = "Linear", description = "A setup full of borders and lines. Awesome right?" },
+	{ name = "Surreal",   description = "Yes, I copied the macOS Big Sur design." },
+	{ name = "Linear",    description = "A setup full of borders and lines. Awesome right?" },
 }
 
 local elements = {}
@@ -39,6 +36,7 @@ function build(s)
 	})
 	return popup
 end
+
 local key_grabber = awful.keygrabber({
 	auto_start = true,
 	stop_event = "release",

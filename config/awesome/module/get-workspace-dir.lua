@@ -17,12 +17,12 @@ function coroutinize(f, ...)
 	end
 	exec(...)
 end
-function set_WS_dir()
+function set_ws_dir()
 	local res = coroutine.yield(function(resolve)
 		awful.spawn.easy_async_with_shell("realpath " .. relative_config_dir, resolve)
 	end)
 	print("config_dir_path: " .. res)
 end
-coroutinize(set_WS_dir)
+coroutinize(set_ws_dir)
 print("cc", config_dir_path)
 -- return Path:new(nil, { config_dir_path })
