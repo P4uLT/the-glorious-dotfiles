@@ -2,7 +2,7 @@ local awful = require('awful')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
 local gears = require('gears')
-local icons = require('theme.icons')
+local icons = require("theme." .. THEME .. ".icons")
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
 local task_list = require('widget.task-list')
@@ -54,6 +54,8 @@ local top_panel = function(s, offset)
 	local clock 			= require('widget.clock')(s)
 	local layout_box 		= require('widget.layoutbox')(s)
 	local add_button 		= require('widget.open-default-app')(s)
+	s.theme_picker_toggle = require("widget.theme-picker-toggle")
+	s.keyboard_layout = require("widget.keyboard-layout")
 	s.tray_toggler  		= require('widget.tray-toggle')
 	s.updater 				= require('widget.package-updater')()
 	s.screen_rec 			= require('widget.screen-recorder')()
@@ -91,6 +93,7 @@ local top_panel = function(s, offset)
 			--s.bluetooth,
 			s.battery,
 			clock,
+			s.theme_picker_toggle(),
 			layout_box,
 			s.info_center_toggle
 		}

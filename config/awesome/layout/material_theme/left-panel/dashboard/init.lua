@@ -4,7 +4,11 @@ local gears = require('gears')
 local beautiful = require('beautiful')
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
-local icons = require('theme.icons')
+local icons = require("theme.icons")
+local path_to_file = ...
+local hardware_monitor = require(path_to_file .. ".hardware-monitor")
+local quick_settings = require(path_to_file .. ".quick-settings")
+local end_session = require("widget.end-session-footer")
 
 return function(_, panel)
 
@@ -66,12 +70,11 @@ return function(_, panel)
 				layout = wibox.layout.fixed.vertical,
 				spacing = dpi(7),
 				search_button,
-				require('layout.left-panel.dashboard.hardware-monitor'),
-				require('layout.left-panel.dashboard.quick-settings'),
-
+				hardware_monitor,
+				quick_settings,
 			},
 			nil,
-			require('widget.end-session')(),
+			end_session(),
 			layout = wibox.layout.align.vertical
 		},
 		margins = dpi(16),

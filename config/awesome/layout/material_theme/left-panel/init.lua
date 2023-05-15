@@ -3,7 +3,11 @@ local awful = require('awful')
 local gears = require('gears')
 local beautiful = require('beautiful')
 local dpi = beautiful.xresources.apply_dpi
-local apps = require('configuration.apps')
+local apps = require("configuration.apps")
+local path_to_file = ...
+local left_panel_action_bar = require(path_to_file .. ".action-bar")
+local left_panel_dashboard = require(path_to_file .. ".dashboard")
+local lgi = require("lgi")
 
 local left_panel = function(screen)
 	
@@ -142,11 +146,11 @@ local left_panel = function(screen)
 			visible = false,
 			forced_width = panel_content_width,
 			{
-				require('layout.left-panel.dashboard')(screen, panel),
+				left_panel_dashboard(screen, panel),
 				layout = wibox.layout.stack
 			}
 		},
-		require('layout.left-panel.action-bar')(screen, panel, action_bar_width)
+		left_panel_action_bar(screen, panel, action_bar_width)
 	}
 	return panel
 end
