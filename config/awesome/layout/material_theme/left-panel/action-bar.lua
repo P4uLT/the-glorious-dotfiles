@@ -1,47 +1,37 @@
-local awful = require('awful')
-local beautiful = require('beautiful')
-local wibox = require('wibox')
-local gears = require('gears')
+local awful = require("awful")
+local beautiful = require("beautiful")
+local wibox = require("wibox")
+local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
-local icons = require('theme.icons')
-local tag_list = require('widget.tag-list')
-local clickable_container = require('widget.clickable-container')
+local icons = require("theme." .. THEME .. ".icons")
+local tag_list = require("widget.tag-list")
+local clickable_container = require("widget.clickable-container")
 
 return function(s, panel, action_bar_width)
-
-	local menu_icon = wibox.widget {
+	local menu_icon = wibox.widget({
 		{
-			id = 'menu_btn',
+			id = "menu_btn",
 			image = icons.menu,
 			resize = true,
-			widget = wibox.widget.imagebox
+			widget = wibox.widget.imagebox,
 		},
 		margins = dpi(10),
-		widget = wibox.container.margin
-	}
-	
-	local open_dashboard_button = wibox.widget {
+		widget = wibox.container.margin,
+	})
+
+	local open_dashboard_button = wibox.widget({
 		{
 			menu_icon,
-			widget = clickable_container
+			widget = clickable_container,
 		},
 		--bg = beautiful.background .. '66',
 		bg = '#003f6b',
-		widget = wibox.container.background
-	}
+		widget = wibox.container.background,
+	})
 
-	open_dashboard_button:buttons(
-		gears.table.join(
-			awful.button(
-				{},
-				1,
-				nil,
-				function()
-					panel:toggle()
-				end
-			)
-		)
-	)
+	open_dashboard_button:buttons(gears.table.join(awful.button({}, 1, nil, function()
+		panel:toggle()
+	end)))
 
 	panel:connect_signal(
 		'opened',
@@ -68,7 +58,7 @@ return function(s, panel, action_bar_width)
 			layout = wibox.layout.fixed.vertical,
 		},
 		nil,
-		require('widget.search-apps')()
+		require('widget.search-apps')(),
 		--open_dashboard_button
 	}
 end
