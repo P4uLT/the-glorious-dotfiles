@@ -7,6 +7,7 @@ local titlebar_themes = {
 	["gnawesome"] = "stoplight",
 	["linear"] = "stoplight",
 	["surreal"] = "stoplight",
+	["material_theme"] = "stoplight",
 }
 
 local theme_root_dir = Path:new(filesystem.get_configuration_dir():gsub("/$", ""), "theme")

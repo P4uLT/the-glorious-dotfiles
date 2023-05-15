@@ -31,6 +31,7 @@ local theme_map = {
 	linear = music_box,
 	floppy = top_panel_button,
 	gnawesome = top_panel_button,
+	material_theme = top_panel_button,
 }
 
 -- Mpd widget updater

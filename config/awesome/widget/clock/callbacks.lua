@@ -2,7 +2,7 @@ local gears = require("gears")
 ---@module "widget.clock"
 local calendar = require("widget.calendar")
 local awful = require("awful")
---- @type {["floppy"]: function, ["gnawesome"]: function, ["surreal"] : function, ["linear"] : function}
+--- @type {["floppy"]: function, ["gnawesome"]: function, ["surreal"] : function, ["linear"] : function, ["material_theme"] : function}
 
 return {
 	["gnawesome"] = function()
@@ -15,6 +15,9 @@ return {
 		calendar(s)
 	end,
 	["linear"] = function()
+		calendar(s)
+	end,
+	["material_theme"] = function()
 		calendar(s)
 	end,
 }
