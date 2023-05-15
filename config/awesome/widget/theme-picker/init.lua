@@ -14,7 +14,7 @@ local themes = {
 	{ name = "GNawesOME", description = "Yes, GNawesOME is a weird name. GNawesOME was meant to be a GNOME clone" },
 	{ name = "Surreal",   description = "Yes, I copied the macOS Big Sur design." },
 	{ name = "Linear",    description = "A setup full of borders and lines. Awesome right?" },
-	{ name = "Material",    description = "HK Material theme" },
+	{ name = "Material_theme",    description = "HK Material theme" },
 }
 
 local elements = {}
